@@ -17,7 +17,7 @@ Setup:
 - Set the configuration parameters toward the beginning of main.py (Wifi username and password, Pin number, IFTTT unique ID.
 - If you want to change the notification schedule, you can modify the line "notification_delays= [10*60, 100*60]  " (first notification is after 10 minutes, second is after 100 minutes. You can add more notification timings, or change the existing ones
 - Upload the main.py with your configuration options to the board, and reset the board. Verify that things work correctly by observing the trace messages in the terminal when you get the magnet closer or further away from the reed relay, and also checking the notifications on your phone.
-- Find a place on your garage door railing where you can attach the reed relay and a corresponding spot on the door to attach the magnet in a way that they are as close as possible when the door is closed (within half an inch should work, and if in doubt you can just add a stick a few more small neodymium disk or cube magnets onto the original magnet, to make the field stronger and the gap smaller).
+- Find a place on your garage door railing where you can attach the reed switch, and a corresponding spot on the door to attach the magnet in a way that they come as close as possible when the door is closed (within half an inch should work, and if in doubt you can just add a stick a few more small neodymium disk or cube magnets onto the original magnet, to make the field stronger and the gap smaller).
 
 Special cases:
 - If the wifi is not available, the script tries to send the notification every 10 minutes for an hour, and after that it self-resets the board (just in case it is an issue with the wifi stack of the device).
