@@ -7,14 +7,12 @@ from machine import Pin
 from machine import Timer
 import network
 
-s = socket.socket()
-
 #configuration
-CONFIG_IFTTT_KEY='MY_IFTTT_WEBHOOD_UID'
+CONFIG_IFTTT_KEY='MY_IFTTT_WEBHOOK_UID'
 CONFIG_WLAN_SSID='SSID_OF_MY_WLAN'
 CONFIG_WLAN_PASSWORD='PASSWORD_OF_MY_WLAN'
 CONFIG_SENSOR_PIN=2
-notification_delays= [10*60, 100*60] 
+notification_delays= [10*60, 100*60] #in seconds, e.g. 10*60 means 10 minutes
 
 wlan = network.WLAN(network.STA_IF)
 
@@ -80,11 +78,7 @@ def save_and_sleep(pin_trigger, sleep_duration):
   machine.RTC().memory(saved_data)
   
   sensor.irq(trigger = pin_trigger, wake = machine.DEEPSLEEP)
-  # safety sleep to allow debugging
-  #machine.sleep(3)
-  
   machine.deepsleep(sleep_duration*1000)
-
 
 
 if (machine.reset_cause()==machine.DEEPSLEEP_RESET):
